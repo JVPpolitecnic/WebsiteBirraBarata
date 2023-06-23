@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Birra barata</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        document.querySelector("body").addEventListener("mousemove", eyeball);
+
+        function eyeball() {
+            const eye = document.querySelectorAll(".eyes");
+            eye.forEach(function (eye) {
+                let x = eye.getBoundingClientRect().left + eye.clientWidth / 2;
+                let y = eye.getBoundingClientRect().top + eye.clientHeight / 2;
+
+                let radian = Math.atan2(event.pageX - x, event.pageY - y);
+                let rotate = radian * (180 / Math.PI) * -1 + 270;
+                eye.style.transform = "rotate(" + rotate + "deg)";
+            });
+        }
+
+    </script>
+    <div class="fade-in">
+        <div class="second">
+            <a href="index.html"><img id="logo1" src="Img/BARATA_LOGO.png" alt="Birra Barata logo"></a>
+            <a class="menuBt" href="index.html">Home</a>
+            <a class="menuBt" href="ultimasNoticias.html">Ultimas noticias</a>
+            <a class="menuBt" href="Contact.html">Colabora</a>
+            <a class="menuBt" href="">Log-in</a>
+            <h2 class="maptext">Log-in:</h2>
+
+            <div class="container">
+                <div id="eye1" class="eyes"></div>
+                <div id="eye2" class="eyes"></div>
+            </div>
+
+            <img id="Barney" src="Img/barneyNoeyes.png" alt="Barney">
+
+            <div class="amberbox">
+                <form id="login" action="action_page.php">
+
+                    <label for="fuser_name">Usuario</label>
+                    <input type="email" id="fname" name="userName" required><br>
+
+                    <label for="password">Contrasenya</label>
+                    <input type="password" id="lname" name="passWOrd" required><br>
+                    <input id="loginButton" type="submit" value="Log_in">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
